@@ -1,5 +1,5 @@
 import * as types from './actionTypes'
-import axios from 'axios'
+
 export const changeAction = (value) => {
     return {
         type: types.CHANGE_INPUT_VALUE,
@@ -27,10 +27,7 @@ export const initAction = (value) => {
 }
 
 export const initAsyncAction = () => {
-    return (dispatch) => {
-        axios.get('http://localhost:1234/init').then((res) => {
-            const action = initAction(res.data)
-            dispatch(action)
-        })
+    return {
+        type: types.ASYNC_INIT_TODO
     }
 }
